@@ -1,0 +1,19 @@
+queue = int(input())
+stack1 = []
+stack2 = []
+
+for i in range(queue):
+    x = input().split()
+    t = int(x[0])
+    if t == 1:
+        stack1.append(int(x[1]))
+    elif t == 2:
+        if not stack2:
+            while stack1:
+                stack2.append(stack1.pop())
+        stack2.pop()
+    elif t == 3:
+        if not stack2:
+            while stack1:
+                stack2.append(stack1.pop())
+        print(stack2[-1])
